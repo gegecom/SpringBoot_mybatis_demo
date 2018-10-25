@@ -8,8 +8,8 @@
     <properties resource="application.yml"/>
 
     <!-- 指定数据库连接驱动jara地址 -->
-    <classPathEntry
-            location="${generator.location}" />
+    <!--<classPathEntry-->
+            <!--location="com.mysql.cj.jdbc.Driver" />-->
 
     <!-- 一个数据库一个context -->
     <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
@@ -28,7 +28,7 @@
 
         <!-- 数据库链接URL、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/dbgril?useSSL=true"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/dbgril?useSSL=false&amp;serverTimezone=Hongkong&amp;characterEncoding=utf-8&amp;autoReconnect=true"
                         userId="root"
                         password="123456">
         </jdbcConnection>
@@ -50,11 +50,12 @@
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <!--对应的mapper.xml文件 -->
+        <!--对于生成的mapper所在目录-->
         <sqlMapGenerator targetPackage="mapper"
                          targetProject="./src/main/resource">
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
+        <!--对应的mapper.xml文件  配置mapper对应的java映射 -->
         <javaClientGenerator type="XMLMAPPER"
                              targetPackage="com.example.demo.mapper"
                              targetProject="src/main/java">
