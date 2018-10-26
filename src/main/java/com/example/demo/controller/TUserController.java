@@ -22,12 +22,12 @@ public class TUserController {
         userService.saveUser(user);
         return "保存成功";
     }
-
-    public UserService getUserService() {
-        return userService;
-    }
-
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
+//
+//    public UserService getUserService() {
+//        return userService;
+//    }
+//
+//    public void setUserService(UserService userService) {
+//        this.userService = userService;
+//    }
 }
