@@ -8,8 +8,8 @@
     <properties resource="application.yml"/>
 
     <!-- 指定数据库连接驱动jara地址 -->
-    <!--<classPathEntry-->
-            <!--location="com.mysql.cj.jdbc.Driver" />-->
+    <classPathEntry
+            location="C:/Users/geshiying/.m2/repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar" />
 
     <!-- 一个数据库一个context -->
     <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
@@ -43,7 +43,7 @@
         <!-- 生成model模型，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径,如./src/main/java，
             也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下 -->
         <javaModelGenerator targetPackage="com.example.demo.pojo"
-                            targetProject="./src/main/java">
+                            targetProject="src/main/java">
             <!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
             <property name="enableSubPackages" value="false" />
             <!-- 从数据库返回的值被清理前后的空格 -->
@@ -52,8 +52,8 @@
 
         <!--对于生成的mapper所在目录-->
         <sqlMapGenerator targetPackage="mapper"
-                         targetProject="./src/main/resource">
-            <property name="enableSubPackages" value="false" />
+                         targetProject="src/main/resource">
+            <!--<property name="enableSubPackages" value="false" />-->
         </sqlMapGenerator>
         <!--对应的mapper.xml文件  配置mapper对应的java映射 -->
         <javaClientGenerator type="XMLMAPPER"
