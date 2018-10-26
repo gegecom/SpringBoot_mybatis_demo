@@ -11,7 +11,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 //@SpringBootApplication
 @ComponentScan(basePackages = {"com.example.demo.*"})
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-@MapperScan(basePackages = "com.example.demo.*")
+@MapperScan(basePackages = "com.example.demo.mapper")
 public class DemoApplication {
 
     public static void main(String[] args) {
