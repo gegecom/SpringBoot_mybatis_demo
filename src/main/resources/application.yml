@@ -1,3 +1,5 @@
+
+
 spring:
   devtools:
     restart:
@@ -42,4 +44,5 @@ pagehelper:
 
 
 
-
+server:
+  port: 8081
