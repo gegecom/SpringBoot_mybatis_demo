@@ -13,40 +13,32 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private TUserMapper userMapper;
 
-   @Autowired
+    @Override
     public void saveUser(TUser user) {
        userMapper.insert(user);
     }
 
 
-    @Autowired
+    @Override
     public void updateUser(TUser user){
 
     }
 
 
-    @Autowired
+    @Override
     public void deleteUser(String userName){
 
     }
-//    @Autowired
+//    @Override
 //    public TUser queryUserByUserName(String UserName){
 //      TUser u = new TUser();
 //      return  u;
 //    }
 
-    @Autowired
+    @Override
     public List<TUser> queryUserList(TUser user){
         List<TUser> LU = null;
         return  LU;
     }
 
-
-    public TUserMapper getUserMapper() {
-        return userMapper;
-    }
-
-    public void setUserMapper(TUserMapper userMapper) {
-        this.userMapper = userMapper;
-    }
 }
