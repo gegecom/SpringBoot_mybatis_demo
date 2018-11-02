@@ -22,6 +22,26 @@ public class TUserController {
         userService.saveUser(user);
         return "保存成功";
     }
+    @RequestMapping("/updateUser")
+    public String updateUser(){
+        TUser user = new TUser();
+        user.setUserid(1002);
+        user.setUsername("gesy");
+//        user.setPassword("123456");
+        user.setPhone("123456789000");
+        userService.updateUser(user);
+        return "保存成功";
+    }
+
+
+    @RequestMapping("/queryUser")
+    public TUser queryUser(){
+        TUser user = new TUser();
+        user.setUsername("gsy");
+        user.setUserid(1000);
+        userService.queryUserList(user);
+        return user;
+    }
 //
 //    public UserService getUserService() {
 //        return userService;
