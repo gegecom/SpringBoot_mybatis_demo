@@ -1,5 +1,4 @@
 
-
 spring:
   devtools:
     restart:
@@ -21,6 +20,9 @@ spring:
       test-on-borrow: true
       stat-view-servlet:
         allow: true
+  thymeleaf:
+    prefix: /templates/thymeleaf/
+    suffix: html
 
 
 mybatis:

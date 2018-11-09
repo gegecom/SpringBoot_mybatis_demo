@@ -42,12 +42,16 @@ public class TUserController {
         userService.queryUserList(user);
         return user;
     }
-//
-//    public UserService getUserService() {
-//        return userService;
-//    }
-//
-//    public void setUserService(UserService userService) {
-//        this.userService = userService;
-//    }
+    @RequestMapping("/queryUserByIdCustom")
+    public TUser queryUserByIdCustom(int userId){
+        TUser tuser = userService.queryUserByIdCustom(userId);
+        return tuser;
+    }
+
+    @RequestMapping("/indexx")
+    public String index(int userId){
+        TUser tuser = userService.queryUserByIdCustom(userId);
+        System.out.println("index");
+        return "index";
+    }
 }

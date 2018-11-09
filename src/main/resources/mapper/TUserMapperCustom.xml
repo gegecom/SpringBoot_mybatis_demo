@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.TUserMapperCustom" >
+    <select id="queryUserSimplyTnfoById" resultType="com.example.demo.pojo.TUser"
+            parameterType="java.lang.Integer">
+        select UserId, userName,password,phone
+        from t_user
+        where UserId = #{UserId, jdbcType=INTEGER}
+    </select>
+</mapper>

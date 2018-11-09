@@ -14,4 +14,6 @@ public interface UserService {
 //    public TUser queryUserByUserName(String UserName);
 
     public List<TUser> queryUserList(TUser user);
+
+    public TUser queryUserByIdCustom(int userId);
 }

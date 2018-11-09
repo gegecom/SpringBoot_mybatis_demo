@@ -1,13 +1,13 @@
 package com.example.demo.service.serviceImpl;
 
 import com.example.demo.mapper.TUserMapper;
+import com.example.demo.mapper.TUserMapperCustom;
 import com.example.demo.pojo.TUser;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,9 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     private TUserMapper userMapper;
+
+    @Autowired
+    private TUserMapperCustom userMapperCustom;
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)//增删改需要以事务的形式来执行
@@ -55,6 +58,16 @@ public class UserServiceImpl implements UserService {
 //        List<TUser> LU = userMapper.selectByExample(example);
 ////        List<TUser> LU = userMapper.selectUserByName(user.getUsername());
         return  LU;
+    }
+
+    @Override
+    public TUser queryUserByIdCustom(int userId){
+        List<TUser> userList = userMapperCustom.queryUserSimplyTnfoById(userId);
+        if (userList != null && !userList.isEmpty()){
+            return userList.get(0);
+        }else {
+            return null;
+        }
     }
 
 }
