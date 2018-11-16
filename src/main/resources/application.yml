@@ -21,7 +21,7 @@ spring:
       stat-view-servlet:
         allow: true
   thymeleaf:
-    prefix: /templates/thymeleaf/
+    prefix: ./resources/static/html/
     suffix: html
 
 
