@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.UserInfoMapper" >
+
+    <resultMap id="UserInfoResultMap" type="com.example.demo.pojo.UserInfoPO" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, name
+    </sql>
+
+    <insert id="insertUserInfo" parameterType="com.example.demo.pojo.UserInfoPO" >
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into userinfo(id,name)
+        values (#{id,jdbcType=INTEGER},
+                #{name,jdbcType=VARCHAR});
+    </insert>
+
+    <delete id="delUserInfo" parameterType="java.lang.Integer">
+        delete from userinfo
+        where id=#{id,jdbcType=INTEGER}
+    </delete>
+
+    <update id="updateUserInfo" parameterType="com.example.demo.pojo.UserInfoPO">
+        update userinfo
+          <set>
+              <if test="name !=null">
+                  name = #{name.jdbc=VARCHAR}
+              </if>
+          </set>
+        where id=#{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectUserInfo" parameterType="com.example.demo.pojo.UserInfoPO" resultMap="UserInfoResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from userinfo
+        where 1=1
+        <if test="name !=null">
+            and name = #{name.jdbc=VARCHAR}
+        </if>
+    </select>
+
+
+</mapper>

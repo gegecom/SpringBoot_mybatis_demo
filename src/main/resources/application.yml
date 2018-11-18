@@ -20,9 +20,9 @@ spring:
       test-on-borrow: true
       stat-view-servlet:
         allow: true
-  thymeleaf:
-    prefix: ./resources/static/html/
-    suffix: html
+#  thymeleaf:
+#    prefix: ./resources/static/pages/
+#    suffix: html
 
 
 mybatis:
