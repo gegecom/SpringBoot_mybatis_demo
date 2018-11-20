@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.TDeskMapper">
+    <resultMap id="TDeskMapper"  type="com.example.demo.pojo.TDesk">
+        <id column="UserId" property="userId" jdbcType="INTEGER"></id>
+        <result column="userName" property="userName" jdbcType="VARCHAR"></result>
+        <result column="password" property="password" jdbcType="VARCHAR"></result>
+        <result column="phone" property="phone" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <select id="queryDeskList" parameterType="com.example.demo.pojo.TDesk" resultType="com.example.demo.pojo.TDesk">
+        SELECT *
+        FROM t_user
+        where 1=1
+        <if test="userId != null">
+            and UserId = #{userId, jdbc.type=INTEGER}
+        </if>
+        <if test="userName != null">
+            and userName = #{userName, jdbcType = VARCHAR}
+        </if>
+        <if test="password != null">
+            and password = #{password, jdbcType = VARCHAR}
+        </if>
+        <if test="phone != null">
+            and phone = #{phone, jdbcType = VARCHAR}
+        </if>
+    </select>
+</mapper>

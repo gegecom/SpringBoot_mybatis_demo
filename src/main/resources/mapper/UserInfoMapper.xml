@@ -41,7 +41,7 @@
         from userinfo
         where 1=1
         <if test="name !=null">
-            and name = #{name.jdbc=VARCHAR}
+            and name = #{name,jdbcType=VARCHAR}
         </if>
     </select>
 
