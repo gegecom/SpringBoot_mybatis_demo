@@ -8,4 +8,8 @@ import java.util.List;
 public interface TBookMapper {
 
     public  List<TBookPO> queryUserList(TBookPO tBookPO);
+
+    public  Integer updateUser(TBookPO tBookPO);
+
+    public Integer deleteUser(TBookPO tBookPO);
 }

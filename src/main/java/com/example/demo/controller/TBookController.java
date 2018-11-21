@@ -6,6 +6,7 @@ import com.example.demo.service.TBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,11 +16,53 @@ public class TBookController {
     @Autowired
     TBookService tBookService;
 
-    @GetMapping("/queryList/{userName}")
-    public ServiceResult queryTBookList(@PathVariable(value="userName") String userName){
-        TBookPO po = new TBookPO();
-        po.setUserName(userName);
-        List<TBookPO> listTBook = tBookService.queryUserList(po);
-        return ServiceResult.ok(tBookService.queryUserList(po));
+    @GetMapping("/queryList")
+//    public ServiceResult queryTBookList(@PathVariable(value="userName") String userName){
+    public ServiceResult queryTBookList(Integer userId, String userName, String password, String phone){
+        TBookPO tBookPO = new TBookPO();
+        if (userId!=null){
+            tBookPO.setUserId(userId);
+        }
+        if(userName!=null){
+            tBookPO.setUserName(userName);
+        }
+        if(password!=null){
+            tBookPO.setPassword(password);
+        }
+        if (phone!=null){
+            tBookPO.setPhone(phone);
+        }
+//        List<TBookPO> listTBook = tBookService.queryUserList(tBookPO);
+        return ServiceResult.ok(tBookService.queryUserList(tBookPO));
+    }
+
+    @RequestMapping("/updateUser")
+    public  ServiceResult updateUser(Integer userId, String userName, String password, String phone){
+        TBookPO tBookPO = new TBookPO();
+        tBookPO.setUserName(userName);
+        tBookPO.setPassword(password);
+        tBookPO.setPhone(phone);
+        tBookPO.setUserId(userId);
+        return  ServiceResult.ok(tBookService.updateUser(tBookPO));
+    }
+
+    @RequestMapping("/deleteUser")
+    public ServiceResult deleteUser(Integer userId, String userName, String password, String phone){
+        TBookPO tBookPO = new TBookPO();
+        if (userId!=null){
+            tBookPO.setUserId(userId);
+        }
+        if(userName!=null){
+            tBookPO.setUserName(userName);
+        }
+        if(password!=null){
+            tBookPO.setPassword(password);
+        }
+        if (phone!=null){
+            tBookPO.setPhone(phone);
+        }
+
+        return ServiceResult.ok(tBookService.deleteUser(tBookPO));
+
     }
 }

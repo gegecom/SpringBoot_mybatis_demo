@@ -16,4 +16,13 @@ public class TBookServiceImpl implements TBookService {
     public List<TBookPO> queryUserList(TBookPO tBookPO) {
         return tBookMapper.queryUserList(tBookPO);
     }
+
+    @Override
+    public Integer updateUser(TBookPO tBookPO){
+        return  tBookMapper.updateUser(tBookPO);
+    }
+
+    public Integer deleteUser(TBookPO tBookPO){
+        return  tBookMapper.deleteUser(tBookPO);
+    }
 }
