@@ -17,10 +17,10 @@
             and userName = #{userName, jdbcType=VARCHAR}
         </if>
         <if test="password!=null">
-            and password = #{passeord, jdbcType=VARCHAR}
+            and password = #{password, jdbcType=VARCHAR}
         </if>
         <if test="phone!=null">
-            and phone = #{phone, jdbcTyoe=VARCHAR}
+            and phone = #{phone, jdbcType=VARCHAR}
         </if>
         ;
     </select>
