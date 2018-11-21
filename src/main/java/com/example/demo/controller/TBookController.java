@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.pojo.ServiceResult;
 import com.example.demo.pojo.TBookPO;
 import com.example.demo.service.TBookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,10 @@ public class TBookController {
     TBookService tBookService;
 
     @GetMapping("/queryList/{userName}")
-    public List<TBookPO> queryTBookList(@PathVariable(value="userName") String userName){
+    public ServiceResult queryTBookList(@PathVariable(value="userName") String userName){
         TBookPO po = new TBookPO();
         po.setUserName(userName);
-        return tBookService.queryUserList(po);
+        List<TBookPO> listTBook = tBookService.queryUserList(po);
+        return ServiceResult.ok(tBookService.queryUserList(po));
     }
 }
