@@ -1,0 +1,16 @@
+Index: src/main/resources/application.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/application.yml	(revision 3e5cdc439bc17794217bc4f7a7920d9ddb74e1fd)
++++ src/main/resources/application.yml	(date 1541993881915)
+@@ -21,7 +21,7 @@
+       stat-view-servlet:
+         allow: true
+   thymeleaf:
+-    prefix: /templates/thymeleaf/
++    prefix: ./resources/static/html/
+     suffix: html
+ 
+ 
