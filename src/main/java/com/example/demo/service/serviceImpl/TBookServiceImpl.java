@@ -9,13 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class TBookServiceImpl implements TBookService {
-
     @Autowired
     TBookMapper tBookMapper;
     @Autowired
     TDeskMapper tDeskMapper;
+
 
     @Override
     public List<TBookPO> queryUserList(TBookPO tBookPO) {
@@ -23,16 +24,18 @@ public class TBookServiceImpl implements TBookService {
     }
 
     @Override
-    public List<TDesk> queryTDeskList(TDesk tDesk){
-        return  tDeskMapper.queryDeskList(tDesk);
+    public Integer updateUser(TBookPO tBookPO) {
+        return tBookMapper.updateUser(tBookPO);
+    }
+
+    public Integer deleteUser(TBookPO tBookPO) {
+        return tBookMapper.deleteUser(tBookPO);
     }
 
     @Override
-    public Integer updateUser(TBookPO tBookPO){
-        return  tBookMapper.updateUser(tBookPO);
+    public List<TDesk> queryTDeskList(TDesk tDesk) {
+        return tDeskMapper.queryDeskList(tDesk);
     }
 
-    public Integer deleteUser(TBookPO tBookPO){
-        return  tBookMapper.deleteUser(tBookPO);
-    }
+
 }

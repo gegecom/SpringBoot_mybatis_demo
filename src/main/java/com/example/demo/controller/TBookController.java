@@ -27,14 +27,12 @@ public class TBookController {
     }
 
     @GetMapping("/queryTDeskList/{userName}")
-    public ResponseEntity queryTDeskList(@PathVariable(value="userName") String userName){
+    public ResponseEntity queryTDeskList(@PathVariable(value="userName") String userName) {
         TDesk po = new TDesk();
         po.setUserName(userName);
         return ResponseEntity.ok(tBookService.queryTDeskList(po));
     }
-
     @GetMapping("/queryList")
-//    public ServiceResult queryTBookList(@PathVariable(value="userName") String userName){
     public ServiceResult queryTBookList(Integer userId, String userName, String password, String phone){
         TBookPO tBookPO = new TBookPO();
         if (userId!=null){

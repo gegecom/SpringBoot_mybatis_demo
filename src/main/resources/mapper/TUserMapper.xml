@@ -3,8 +3,8 @@
 <mapper namespace="com.example.demo.mapper.TUserMapper" >
     <resultMap id="BaseResultMap" type="com.example.demo.pojo.TUser" >
 
-        <id column="UserId" property="userId" jdbcType="INTEGER" />
-        <result column="userName" property="userName" jdbcType="VARCHAR" />
+        <id column="UserId" property="userid" jdbcType="INTEGER" />
+        <result column="userName" property="username" jdbcType="VARCHAR" />
         <result column="password" property="password" jdbcType="VARCHAR" />
         <result column="phone" property="phone" jdbcType="VARCHAR" />
 
