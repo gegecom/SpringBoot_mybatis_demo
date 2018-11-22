@@ -11,6 +11,9 @@ import java.util.List;
 public class TBookServiceImpl implements TBookService {
     @Autowired
     TBookMapper tBookMapper;
+    @Autowired
+    TDeskMapper tDeskMapper;
+
 
     @Override
     public List<TBookPO> queryUserList(TBookPO tBookPO) {
@@ -25,4 +28,9 @@ public class TBookServiceImpl implements TBookService {
     public Integer deleteUser(TBookPO tBookPO){
         return  tBookMapper.deleteUser(tBookPO);
     }
+
+    @Override
+    public List<TDesk> queryTDeskList(TDesk tDesk){
+        return  tDeskMapper.queryDeskList(tDesk);
+    };
 }
